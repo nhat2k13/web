@@ -151,17 +151,17 @@
             background: var(--primary-hover);
             color: #000;
         }
-/* Nội dung chính bên dưới */
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 95%;           /* THÊM DÒNG NÀY: Giúp mở rộng khung ra 95% màn hình */
-    max-width: 1400px;    /* THÊM DÒNG NÀY: Giới hạn độ rộng tối đa chuẩn web desktop */
-}
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 95%;
+            max-width: 1400px;
+        }
 
         .container {
             width: 100%;
@@ -250,7 +250,6 @@
             gap: 8px;
         }
 
-        /* Modal Popup Styling */
         #otpModal { 
             display: none; 
             position: fixed; 
@@ -266,20 +265,20 @@
             padding: 15px;
         }
 
-      .modal-content { 
-    background: var(--bg-card); 
-    border: 1px solid var(--primary); 
-    padding: 10px;                 /* Giảm padding để tiết kiệm diện tích */
-    border-radius: 12px; 
-    width: 98vw !important;        /* Chiếm 98% chiều rộng màn hình */
-    max-width: 100% !important;    /* Bỏ giới hạn tối đa để tràn viền */
-    height: 96vh !important;       /* Chiếm 96% chiều cao màn hình */
-    display: flex; 
-    flex-direction: column; 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8); 
-    position: relative; 
-    overflow-y: auto;
-}
+        .modal-content { 
+            background: var(--bg-card); 
+            border: 1px solid var(--primary); 
+            padding: 10px;
+            border-radius: 12px; 
+            width: 98vw !important;
+            max-width: 100% !important;
+            height: 96vh !important;
+            display: flex; 
+            flex-direction: column; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8); 
+            position: relative; 
+            overflow-y: auto;
+        }
 
         .modal-header {
             display: flex;
@@ -316,13 +315,13 @@
             color: var(--text-main);
         }
 
- .iframe-container { 
-    flex: 1; 
-    background: #fff; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    border: 1px solid var(--border); 
-}
+        .iframe-container { 
+            flex: 1; 
+            background: #fff; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            border: 1px solid var(--border); 
+        }
 
         .copy-hint {
             font-size: 12px;
@@ -334,7 +333,6 @@
 </head>
 <body>
 
-<!-- Thanh Header phía trên -->
 <header class="app-header">
     <div class="header-brand">
         <div class="brand-icon">
@@ -371,22 +369,14 @@
             </div>
         </div>
 
-        <button class="btn-header" onclick="location.reload()" title="Làm mới trang">
-            🔄
-        </button>
-        <button class="btn-header" onclick="alert('Tính năng hướng dẫn lấy localStorage')">
-            &lt;/&gt; Cách lấy localStorage
-        </button>
-        <button class="btn-header btn-primary-header" onclick="alert('Mở form thêm tài khoản')">
-            + Thêm tài khoản
-        </button>
+        <button class="btn-header" onclick="location.reload()" title="Làm mới trang">🔄</button>
+        <button class="btn-header" onclick="alert('Tính năng hướng dẫn lấy localStorage')">&lt;/&gt; Cách lấy localStorage</button>
+        <button class="btn-header btn-primary-header" onclick="alert('Mở form thêm tài khoản')">+ Thêm tài khoản</button>
     </div>
 </header>
 
-<!-- Nội dung chính -->
 <div class="main-content">
     <div class="container">
-        <!-- Giao diện chính thu gọn -->
         <div class="box">
             <h3>⚡ Hệ Thống Nhận OTP </h3>
             <button onclick="taoEmailMoi()">Tạo Email Mới</button>
@@ -403,14 +393,10 @@
             </div>
         </div>
 
-        <!-- Nút mở Popup tích hợp -->
-        <button class="btn-launch" onclick="moPopupOtp()">
-            🚀 Mở Tool Tích Hợp vmoscloud
-        </button>
+        <button class="btn-launch" onclick="moPopupOtp()">🚀 Mở Tool Tích Hợp vmoscloud</button>
     </div>
 </div>
 
-<!-- Khung Popup Modal -->
 <div id="otpModal">
     <div class="modal-content">
         <div class="modal-header">
@@ -418,23 +404,27 @@
             <button class="close-btn" onclick="dongPopupOtp()">✕</button>
         </div>
         
-        <!-- Phần điều khiển email & hiển thị OTP trong Popup -->
-        <div class="box" style="margin-bottom: 12px; padding: 14px;">
-            <button onclick="taoEmailMoiPopup()">Tạo Email Mới</button>
-            <div class="input-group" style="margin: 8px 0 4px 0;">
-                <input type="text" id="popupEmailInput" readonly placeholder="Chưa có email..." style="font-size: 13px; padding: 8px 12px;">
+        <div class="box" style="margin-bottom: 8px; padding: 10px 14px; flex-shrink: 0;">
+            <button onclick="taoEmailMoiPopup()" style="padding: 8px; font-size: 14px;">Tạo Email Mới</button>
+            <div class="input-group" style="margin: 6px 0 2px 0;">
+                <input type="text" id="popupEmailInput" readonly placeholder="Chưa có email..." style="font-size: 12px; padding: 6px 10px;">
             </div>
-            <div class="copy-hint">Nhấn vào ô email để tự động copy</div>
-            <div class="info-row" style="font-size: 13px; margin-top: 8px;">
+            <div class="copy-hint" style="font-size: 11px; margin-top: 2px;">Nhấn vào ô email để tự động copy</div>
+            <div class="info-row" style="font-size: 12px; margin-top: 4px;">
                 <span id="popupStatus" class="status">Chưa tạo email...</span>
-                <span>OTP: <span id="popupOtp" style="color: var(--accent); font-size: 16px; font-weight: 700;">---</span></span>
+                <span>OTP: <span id="popupOtp" style="color: var(--accent); font-size: 14px; font-weight: 700;">---</span></span>
             </div>
         </div>
 
-       <!-- Khung nhúng trang web đăng ký -->
-<div class="iframe-container" style="width: 100%; height: 75vh; border-radius: 12px; overflow: hidden; margin-top: 15px;">
-    <iframe src="https://vmoscloud.com" style="width: 100%; height: 100%; border: none;"></iframe>
-</div>
+        <div id="stepResult" style="display:none; background: #111827; padding: 12px; border-radius: 8px; margin-bottom: 10px;">
+            <p style="font-size: 13px;">Token: <code id="txtToken" style="color: #10b981;">---</code></p>
+            <p style="font-size: 13px;">UserId: <code id="txtUserId" style="color: #3b82f6;">---</code></p>
+            <div id="buyStatus" style="margin-top: 8px; font-weight: bold; color: var(--warning);">🔄 Đang xếp hàng mua máy...</div>
+        </div>
+
+        <div class="iframe-container">
+            <iframe src="https://vmoscloud.com" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
     </div>
 </div>
 
@@ -469,7 +459,7 @@
         document.getElementById('statusText').innerText = "Đang tạo email...";
         document.getElementById('otpText').innerText = "---";
         try {
-            let res = await fetch('http://localhost:3000/api/generate-mail', { method: 'POST' });
+            let res = await fetch('https://web-45m4.onrender.com/api/generate-mail', { method: 'POST' });
             let data = await res.json();
             
             let rawObj = data.data || data;
@@ -506,7 +496,7 @@
 
         intervalId = setInterval(async () => {
             try {
-                let res = await fetch(`http://localhost:3000/api/check-inbox/${encodeURIComponent(currentEmail)}`);
+                let res = await fetch(`https://web-45m4.onrender.com/api/check-inbox/${encodeURIComponent(currentEmail)}`);
                 let data = await res.json();
                 
                 if (Array.isArray(data) && data.length > 0) {
@@ -543,7 +533,7 @@
         document.getElementById('popupStatus').innerText = "Đang tạo email...";
         document.getElementById('popupOtp').innerText = "---";
         try {
-            let res = await fetch('http://localhost:3000/api/generate-mail', { method: 'POST' });
+            let res = await fetch('https://web-45m4.onrender.com/api/generate-mail', { method: 'POST' });
             let data = await res.json();
             
             let rawObj = data.data || data;
@@ -578,7 +568,7 @@
 
         popupInterval = setInterval(async () => {
             try {
-                let res = await fetch(`http://localhost:3000/api/check-inbox/${encodeURIComponent(popupEmail)}`);
+                let res = await fetch(`https://web-45m4.onrender.com/api/check-inbox/${encodeURIComponent(popupEmail)}`);
                 let data = await res.json();
                 
                 if (Array.isArray(data) && data.length > 0) {
@@ -598,70 +588,6 @@
     }
 </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ypei5updsh");
-</script><script src="app_2.js"></script>
-
+<script src="man.js"></script>
 </body>
-<!-- Nhúng file man.js (nằm cùng thư mục web cloud 2) -->
-    <script src="man.js"></script>
-</body>
-<!-- Khung hiển thị máy đám mây toàn màn hình -->
-<div id="cloud-viewer-modal" class="cloud-viewer-overlay">
-    <!-- Thanh công cụ phía trên -->
-    <div class="viewer-header">
-        <span class="viewer-title">Chia sẻ máy đám mây</span>
-        <div class="viewer-actions">
-            <button class="btn-icon" title="Sao chép Padcode">📋</button>
-            <button class="btn-icon" title="Phóng to">🔍+</button>
-            <button class="btn-icon" title="Thu nhỏ">🔍-</button>
-            <button class="btn-icon" onclick="toggleFullscreen()" title="Toàn màn hình">⤢</button>
-            <button class="btn-icon btn-close" onclick="closeViewer()" title="Đóng">✕</button>
-        </div>
-    </div>
-
-    <!-- Khu vực hiển thị màn hình điện thoại -->
-    <div class="viewer-body">
-        <iframe id="cloud-iframe" src="URL_STREAM_CỦA_BẠN" frameborder="0"></iframe>
-    </div>
-</div>
-<!-- Khung Popup Modal -->
-<div id="otpModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="modal-title">UTAOv1 - Quản Lý & Nhận OTP Tự Động</span>
-            <button class="close-btn" onclick="dongPopupOtp()">✕</button>
-        </div>
-        
-        <!-- Phần điều khiển email & hiển thị OTP được thu gọn -->
-<div class="box" style="margin-bottom: 8px; padding: 10px 14px; flex-shrink: 0;">
-    <button onclick="taoEmailMoiPopup()" style="padding: 8px; font-size: 14px;">Tạo Email Mới</button>
-    <div class="input-group" style="margin: 6px 0 2px 0;">
-        <input type="text" id="popupEmailInput" readonly placeholder="Chưa có email..." style="font-size: 12px; padding: 6px 10px;">
-    </div>
-    <div class="copy-hint" style="font-size: 11px; margin-top: 2px;">Nhấn vào ô email để tự động copy</div>
-    <div class="info-row" style="font-size: 12px; margin-top: 4px;">
-        <span id="popupStatus" class="status">Chưa tạo email...</span>
-        <span>OTP: <span id="popupOtp" style="color: var(--accent); font-size: 14px; font-weight: 700;">---</span></span>
-    </div>
-</div>
-
-        <!-- 👇 ĐOẠN ĐƯỢC DÁN VÀO ĐÂY 👇 -->
-        <div id="stepResult" style="display:none; background: #111827; padding: 12px; border-radius: 8px; margin-bottom: 10px;">
-            <p style="font-size: 13px;">Token: <code id="txtToken" style="color: #10b981;">---</code></p>
-            <p style="font-size: 13px;">UserId: <code id="txtUserId" style="color: #3b82f6;">---</code></p>
-            <div id="buyStatus" style="margin-top: 8px; font-weight: bold; color: var(--warning);">
-                🔄 Đang xếp hàng mua máy...
-            </div>
-        </div>
-
-        <!-- Khung nhúng trang web đăng ký -->
-        <div class="iframe-container">
-            <iframe src="https://vmoscloud.com" style="width: 100%; height: 100%; border: none;"></iframe>
-        </div>
-    </div>
-</div>
+</html>
