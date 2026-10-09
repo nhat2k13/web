@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/nhat2k13/web#readme",
   "dependencies": {
+    "axios": "^1.20.0",
     "express": "^5.2.1"
   }
 }
